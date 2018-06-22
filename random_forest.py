@@ -112,7 +112,7 @@ def random_forest_model(train_filepath,valid_filepath,test_filepath,features):
     # set hyper-parameter
     sample_leaf_options = 7
     n_estimators_options = 7
-    alg = RandomForestClassifier(criterion='gini',bootstrap=True,min_samples_leaf=sample_leaf_options, n_estimators=n_estimators_options, random_state=50)#随机数生成种子
+    alg = RandomForestClassifier(criterion='gini',bootstrap=True,min_samples_leaf=sample_leaf_options, n_estimators=n_estimators_options, random_state=50)
     alg.fit(df_train[features],df_train['LABEL'])
     predict = alg.predict(df_test[features])
     features_degree = sorted(zip(map(lambda x: round(x, 4), alg.feature_importances_),df_train[features]), reverse=True)
